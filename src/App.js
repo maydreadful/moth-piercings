@@ -1,7 +1,7 @@
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { faBars } from "@fortawesome/free-solid-svg-icons/faBars";
-import { Link, Router } from "react-router-dom";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
           <nav>
             <ul>
               <li>
-                <Link to="/">Home</Link>
+                <Link to="/Home">Home</Link>
               </li>
               <li>
                 {" "}
@@ -38,14 +38,14 @@ function App() {
           <div className="navs-icon-container">
             <div className="search-input-container">
               <input type="search" />
-              <FontawesomeIcon icon={faSearch} />
+              <FontAwesomeIcon icon={faSearch} />
             </div>
             <button className="shopping-cart">
-              <FontawesomeIcon icon={faShoppingCart} />
+              <FontAwesomeIcon icon={faShoppingCart} />
               <div className="products-count">0</div>
             </button>
             <button className="menu-button">
-              <FontawesomeIcon icon={faBars} />
+              <FontAwesomeIcon icon={faBars} />
             </button>
           </div>
         </div>
