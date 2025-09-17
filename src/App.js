@@ -8,9 +8,11 @@ function App() {
     <Router>
       <div className="App">
         <div className="nav">
+          <div className="inner-content">
           <h1 className="logo">
             Moth<span>Piercings</span>
           </h1>
+         
           <nav>
             <ul>
               <li>
@@ -34,6 +36,7 @@ function App() {
               </li>
             </ul>
           </nav>
+          
 
           <div className="navs-icon-container">
             <div className="search-input-container">
@@ -49,6 +52,8 @@ function App() {
             </button>
           </div>
         </div>
+      
+      </div>
       </div>
     </Router>
   );
