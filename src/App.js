@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Navbar from './components/Navbar';
 import Header from './components/Header';
 import { useEffect } from "react";
+import ProductsList from "./components/ProductsList";
 
 function App() {
   const products = [products, setProducts] = useState([]);
@@ -22,7 +23,9 @@ function App() {
               <div className="underline"></div>
             </div>
 
-            <div className="main-content"></div>
+            <div className="main-content">
+              <ProductsList products={products} />
+            </div>
           </div>
         </main>
       </div>
