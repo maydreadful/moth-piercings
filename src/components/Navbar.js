@@ -5,6 +5,8 @@ import { faBars, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 export default function Navbar() {
+const [show, setShow] = useState(false);
+
   return (
     <div>
       <div className="nav">
