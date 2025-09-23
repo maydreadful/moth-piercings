@@ -16,6 +16,10 @@ export default function Product({ id, image, name, rate, price}) {
         <span>Comprar Agora</span>
         <FontAwesomeIcon icon={faMoneyBill} />
         </Link>
+        <button className="btn-icon add-to-cart-btn">
+        <span>Adicionar ao Carrinho</span>
+        <FontAwesomeIcon icon={faCartShopping} />
+        </button>
     </div>
     </div>
   );  
