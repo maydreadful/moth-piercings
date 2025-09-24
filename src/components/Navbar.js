@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { useState } from 'react';
 
 export default function Navbar() {
 const [show, setShow] = useState(false);
@@ -15,7 +16,7 @@ const [show, setShow] = useState(false);
             Moth<span>Piercings</span>
           </h1>
          
-          <nav>
+          <nav className={`${show && 'show'}`}>
             <ul>
               <li>
                 <Link to="/Home">Home</Link>
@@ -50,6 +51,7 @@ const [show, setShow] = useState(false);
               <div className="products-count">0</div>
             </button>
             <button className="menu-button">
+              onClick={() => setShow(!show)}
               <FontAwesomeIcon icon={faBars} />
             </button>
           </div>

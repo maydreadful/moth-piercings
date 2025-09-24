@@ -1,14 +1,21 @@
+// A CORREÇÃO PRINCIPAL ESTÁ NESTA LINHA:
+import React, { useState, useEffect } from "react"; 
+
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Navbar from './components/Navbar';
 import Header from './components/Header';
-import { useEffect } from "react";
 import ProductsList from "./components/ProductsList";
 
 function App() {
-  const products = [products, setProducts] = useState([]);
+  // A sintaxe correta do useState:
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch('/db.json').then((res) => res.json())
+    fetch('.public/db.json')
+      .then((res) => res.json())
+      // Lembre-se de usar os dados para atualizar o estado:
+      .then((data) => setProducts(data.products)) 
+      .catch((error) => console.error("Erro ao buscar produtos:", error));
   }, []);
 
   return (
@@ -34,3 +41,4 @@ function App() {
 }
 
 export default App;
+

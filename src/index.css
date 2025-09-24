@@ -7,6 +7,7 @@
 :root {
   --primary-color: #000000;
   --secondary-color: #ffffff;
+  --dark-secondary-color: #f0f0f0;
   --tertiary-color: #f5f5f5;
   --quaternary-color: #e0e0e0;
   --quinary-color: #c0c0c0;
@@ -23,6 +24,15 @@ body {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+nav{
+  position: absolute;
+  top: 55px;
+  left: 0;
+  background-color: #fff;
+  width: 100%;
+  padding-bottom: 1rem;
 }
 
 .nav {
@@ -53,10 +63,7 @@ a {
 }
 
 nav ul {
-  display: flex;
-  list-style: none;
-  align-items: center;
-  gap: 1rem;
+  flex-direction: column;
 }
 
 .navs-icon-container {
@@ -245,4 +252,68 @@ grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  margin-top: 1rem;
 }
+
+.product .name {
+  font-weight: bold;
+  margin: 0.4rem;
+}
+
+.product .price {
+margin-top: 0.4rem;
+}
+
+.product .price span {
+font-weight: bold;
+}
+
+.product .rate{
+  color: var(--secondary-color);
+  font-size: 1.3rem;
+}
+
+.btn-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.8rem;
+  background-color: var(--primary-color);
+  color: #fff;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.btn-icon:hover{
+  background-color: var(--dark-primary-color);
+}
+
+.add-to-cart-btn{
+  background-color: var(--secondary-color);
+}
+
+.add-to-cart-btn:hover{
+  background-color: var(--dark-secondary-color);
+}
+
+.section-title{
+  padding-bottom: 2rem;
+  margin-top: 3rem;
+}
+
+.section-title h3 {
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.section-title .underline {
+  width: 150px;
+  height: 2px;
+  background-color: var(--primary-color);
+  margin: 4px auto 0 auto;
+  border-radius: 2px;
+}
+
+/* Product */
