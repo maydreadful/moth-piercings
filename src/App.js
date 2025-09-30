@@ -5,17 +5,17 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Navbar from './components/Navbar';
 import Header from './components/Header';
 import ProductsList from "./components/ProductsList";
+import ExclusiveSection from "./components/ExclusiveSection";
 
 function App() {
   // A sintaxe correta do useState:
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch('.public/db.json')
+    fetch("/db.json")
       .then((res) => res.json())
       // Lembre-se de usar os dados para atualizar o estado:
-      .then((data) => setProducts(data.products)) 
-      .catch((error) => console.error("Erro ao buscar produtos:", error));
+      .then((data) => setProducts(data.products));
   }, []);
 
   return (
@@ -33,9 +33,12 @@ function App() {
             <div className="main-content">
               <ProductsList products={products} />
             </div>
+           
           </div>
         </main>
+        <ExclusiveSection />
       </div>
+       
     </Router>
   );
 }

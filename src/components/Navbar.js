@@ -1,5 +1,4 @@
-import React from 'react'
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
@@ -9,14 +8,13 @@ export default function Navbar() {
 const [show, setShow] = useState(false);
 
   return (
-    <div>
       <div className="nav">
           <div className="inner-content">
           <h1 className="logo">
             Moth<span>Piercings</span>
           </h1>
          
-          <nav className={`${show && 'show'}`}>
+          <nav className={`${show && "show"}`}>
             <ul>
               <li>
                 <Link to="/Home">Home</Link>
@@ -50,14 +48,11 @@ const [show, setShow] = useState(false);
               <FontAwesomeIcon icon={faShoppingCart} />
               <div className="products-count">0</div>
             </button>
-            <button className="menu-button">
-              onClick={() => setShow(!show)}
+            <button className="menu-button" onClick={() => setShow(!show)}>
               <FontAwesomeIcon icon={faBars} />
             </button>
           </div>
         </div>
-      
-      </div>
-    </div>
+        </div>
   )
 }
