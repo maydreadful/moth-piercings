@@ -1,29 +1,42 @@
-// A CORREÇÃO PRINCIPAL ESTÁ NESTA LINHA:
-import React, { useState, useEffect } from "react"; 
-
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Navbar from './components/Navbar';
 import Header from './components/Header';
 import ProductsList from "./components/ProductsList";
 import ExclusiveSection from "./components/ExclusiveSection";
+import ProductsPage from "./components/pages/ProductsPage";
+import SidebarCart from "./components/SidebarCart";
+import HomePage from "./components/pages/HomePage";
 
 function App() {
-  // A sintaxe correta do useState:
-  const [products, setProducts] = useState([]);
+  // A sintaxe correta do useState, agora consistente com o resto do código:
+  const [selectedProducts, setProducts] = useState([]);
+  const [showSidebarCart, setShowSidebarCart] = useState(false);
 
   useEffect(() => {
     fetch("/db.json")
       .then((res) => res.json())
-      // Lembre-se de usar os dados para atualizar o estado:
+      // Agora 'setProducts' existe e vai atualizar o estado 'selectedProducts':
       .then((data) => setProducts(data.products));
   }, []);
 
   return (
     <Router>
       <div className="App">
-        <Navbar /> 
+        <Navbar
+          selectedProducts={selectedProducts}
+          setShowSidebarCart={setShowSidebarCart}
+        />
         <main>
-          <Header /> 
+          <Routes>
+            <Route path="/" element={<HomePage 
+                products={selectedProducts} // <-- AJUSTADO
+                setShowSidebarCart={setShowSidebarCart}
+                selectedProducts={selectedProducts}
+              />}
+            />
+          </Routes>
+          <Header />
           <div className="page-inner-content">
             <div className="section-title">
               <h3>Produtos Selecionados</h3>
@@ -31,17 +44,16 @@ function App() {
             </div>
 
             <div className="main-content">
-              <ProductsList products={products} />
+              {/* Passando a lista de produtos correta para o componente */}
+              <ProductsList products={selectedProducts} /> {/* <-- AJUSTADO */}
             </div>
-           
+            
           </div>
         </main>
         <ExclusiveSection />
       </div>
-       
     </Router>
   );
 }
 
 export default App;
-
